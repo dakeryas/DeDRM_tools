@@ -40,7 +40,7 @@ def WineGetKeys(scriptpath, extension, wineprefix=""):
     except Exception, e:
         print u"{0} v{1}: Wine subprocess call error: {2}".format(PLUGIN_NAME, PLUGIN_VERSION, e.args[0])
         if wineprefix != "" and os.path.exists(wineprefix):
-            cmdline = u"WINEPREFIX=\"{2}\" wine C:\\Python27\\python.exe \"{0}\" \"{1}\"".format(scriptpath,outdirpath,wineprefix)
+            cmdline = u"WINEPREFIX=\"{2}\" WINEPATH=\"C:\\Python26;C:\\windows\\system32\" wine C:\\Python27\\python.exe \"{0}\" \"{1}\"".format(scriptpath,outdirpath,wineprefix)
         else:
            cmdline = u"wine C:\\Python27\\python.exe \"{0}\" \"{1}\"".format(scriptpath,outdirpath)
         print u"{0} v{1}: Command line: “{2}”".format(PLUGIN_NAME, PLUGIN_VERSION, cmdline)
